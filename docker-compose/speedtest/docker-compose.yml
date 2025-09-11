@@ -1,0 +1,16 @@
+---
+services:
+  speedtest:
+    restart: unless-stopped
+    container_name: speedtest
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    image: openspeedtest/latest
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    external: true
+    name: mynetwork
